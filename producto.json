@@ -1,0 +1,98 @@
+{
+  "camisas": [
+    {
+      "id": 1,
+      "imagen": "https://res.cloudinary.com/dvd8kgp1z/image/upload/v1750178972/SOLO_EN_FLAMA_afmxsj.jpg",
+      "linkContactar": "https://wa.me/573216828341?text=Hola,%20estoy%20interesado%20en%20el%20Conjunto%20de%20FLAMA.%20https://res.cloudinary.com/dvd8kgp1z/image/upload/v1750178972/SOLO_EN_FLAMA_afmxsj.jpg%20¿Me%20brindas%20más%20información de esta camisa?"
+    },
+    {
+      "id": 2,
+      "imagen": "https://res.cloudinary.com/dvd8kgp1z/image/upload/v1750178972/SOLO_EN_FLAMA_ylh2sy.jpg",
+      "linkContactar": "https://wa.me/573216828341?text=Hola,%20estoy%20interesado%20en%20el%20Conjunto%20de%20FLAMA.%20https://res.cloudinary.com/dvd8kgp1z/image/upload/v1750178972/SOLO_EN_FLAMA_ylh2sy.jpg%20¿Me%20brindas%20más%20información de esta camisa?"
+    },
+    {
+      "id": 3,
+      "imagen": "https://res.cloudinary.com/dvd8kgp1z/image/upload/v1750178972/SOLO_EN_FLAMA_xtjzmz.jpg",
+      "linkContactar": "https://wa.me/573216828341?text=Hola,%20estoy%20interesado%20en%20el%20Conjunto%20de%20FLAMA.%20https://res.cloudinary.com/dvd8kgp1z/image/upload/v1750178972/SOLO_EN_FLAMA_xtjzmz.jpg%20¿Me%20brindas%20más%20información de esta camisa?"
+    }
+  ],
+  "pantalones": [
+    {
+      "id": 51,
+      "imagen": "https://via.placeholder.com/300x400?text=Pantalon+Cargo",
+      "linkContactar": "https://wa.me/573168672740?text=Hola,%20quiero%20información%20sobre%20el%20pantalón%20Cargo"
+    },
+    {
+      "id": 52,
+      "imagen": "https://via.placeholder.com/300x400?text=Cargo+Tactical",
+      "linkContactar": "https://wa.me/573168672740?text=Hola,%20quiero%20información%20sobre%20el%20pantalón%20Cargo%20Tactical"
+    },
+    {
+      "id": 53,
+      "imagen": "https://via.placeholder.com/300x400?text=Jogger+Premium",
+      "linkContactar": "https://wa.me/573168672740?text=Hola,%20quiero%20información%20sobre%20el%20pantalón%20Jogger%20Premium"
+    }
+  ],
+  "gorras": [
+    {
+      "id": 102,
+      "imagen": "https://via.placeholder.com/300x400?text=Gorra+Snapback",
+      "linkContactar": "https://wa.me/573168672740?text=Hola,%20quiero%20información%20sobre%20la%20gorra%20Snapback"
+    },
+    {
+      "id": 103,
+      "imagen": "https://via.placeholder.com/300x400?text=Snapback+Classic",
+      "linkContactar": "https://wa.me/573168672740?text=Hola,%20quiero%20información%20sobre%20la%20gorra%20Snapback%20Classic"
+    },
+    {
+      "id": 104,
+      "imagen": "https://via.placeholder.com/300x400?text=Bucket+Hat",
+      "linkContactar": "https://wa.me/573168672740?text=Hola,%20quiero%20información%20sobre%20la%20gorra%20Bucket%20Hat"
+    }
+  ],
+  "lociones": [
+    {
+      "id": 153,
+      "imagen": "https://via.placeholder.com/300x400?text=Locion+Premium",
+      "linkContactar": "https://wa.me/573168672740?text=Hola,%20quiero%20información%20sobre%20la%20loción%20Premium"
+    },
+    {
+      "id": 154,
+      "imagen": "https://via.placeholder.com/300x400?text=Urban+Night",
+      "linkContactar": "https://wa.me/573168672740?text=Hola,%20quiero%20información%20sobre%20la%20loción%20Urban%20Night"
+    },
+    {
+      "id": 155,
+      "imagen": "https://via.placeholder.com/300x400?text=Street+Fresh",
+      "linkContactar": "https://wa.me/573168672740?text=Hola,%20quiero%20información%20sobre%20la%20loción%20Street%20Fresh"
+    }
+  ],
+  "conjuntos":[
+    {
+      "id": 200,
+      "nombre": "conjunto",
+      "descripcion": "Conjunto de camiseta roja y pantalón",
+      "imagen": "https://res.cloudinary.com/dvd8kgp1z/image/upload/v1750178971/DIFERENTES-ESTILOS-SOLO-EN-FLAMA_mvwmrh.jpg",
+      "linkContactar": "https://wa.me/573216828341?text=Hola,%20estoy%20interesado%20en%20el%20Conjunto%20de%20FLAMA.%20https://res.cloudinary.com/dvd8kgp1z/image/upload/v1750178971/DIFERENTES-ESTILOS-SOLO-EN-FLAMA_mvwmrh.jpg%20¿Me%20brindas%20más%20información?"
+    },
+    {
+      "id": 201,
+      "nombre": "conjunto 2",
+      "descripcion": "Conjunto de camiseta blanca y pantalón ",
+      "imagen": "https://res.cloudinary.com/dvd8kgp1z/image/upload/v1750178971/DIFERENTES_ESTILOS_solo_en_FLAMA_amv7gv.jpg",
+      "linkContactar": "https://wa.me/573216828341?text=Hola,%20estoy%20interesado%20en%20el%20Conjunto%20de%20FLAMA.%20https://res.cloudinary.com/dvd8kgp1z/image/upload/v1750178971/DIFERENTES_ESTILOS_solo_en_FLAMA_amv7gv.jpg%20¿Me%20brindas%20más%20información?"
+    },{
+        "id": 202,
+        "nombre": "conjunto 3",
+        "descripcion": "Conjunto de camiseta azul y pantalón",
+        "imagen": "https://res.cloudinary.com/dvd8kgp1z/image/upload/v1750178971/DIFERENTES_ESTILOS_SOLO_EN_FLAMA_jltgpv.jpg",
+        "linkContactar": "https://wa.me/573216828341?text=Hola,%20estoy%20interesado%20en%20el%20Conjunto%20de%20FLAMA.%20https://res.cloudinary.com/dvd8kgp1z/image/upload/v1750178971/DIFERENTES_ESTILOS_SOLO_EN_FLAMA_jltgpv.jpg%20¿Me%20brindas%20más%20información?"
+    },{
+        "id": 203,
+        "nombre": "conjunto 4",
+        "descripcion": "Conjunto de camiseta verde y pantalón",
+        "imagen": "https://res.cloudinary.com/dvd8kgp1z/image/upload/v1750181748/DIFERENTES_ESTILO_EN_FLAMA_mbsmgw.jpg",
+        "linkContactar": "https://wa.me/573216828341?text=Hola,%20estoy%20interesado%20en%20el%20Conjunto%20de%20FLAMA.%20https://res.cloudinary.com/dvd8kgp1z/image/upload/v1750181748/DIFERENTES_ESTILO_EN_FLAMA_mbsmgw.jpg%20¿Me%20brindas%20más%20información?"
+    }   
+  ]
+}
