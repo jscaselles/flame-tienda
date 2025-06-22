@@ -1,0 +1,95 @@
+/* ============================================================================
+   ESTILOS PERSONALIZADOS PARA FLAMA
+   ============================================================================ */
+
+/* Estilos para tema claro/oscuro */
+.theme-light {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f3f4f6;
+    --bg-tertiary: #e5e7eb;
+    --text-primary: #1f2937;
+    --text-secondary: #6b7280;
+    --text-accent: #ff6b35;
+    --border-color: #d1d5db;
+}
+
+.theme-dark {
+    --bg-primary: #111827;
+    --bg-secondary: #1f2937;
+    --bg-tertiary: #374151;
+    --text-primary: #f9fafb;
+    --text-secondary: #d1d5db;
+    --text-accent: #ff6b35;
+    --border-color: #4b5563;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+.bg-theme-primary { background-color: var(--bg-primary); }
+.bg-theme-secondary { background-color: var(--bg-secondary); }
+.bg-theme-tertiary { background-color: var(--bg-tertiary); }
+.text-theme-primary { color: var(--text-primary); }
+.text-theme-secondary { color: var(--text-secondary); }
+.text-theme-accent { color: var(--text-accent); }
+.border-theme { border-color: var(--border-color); }
+
+/* Estilos para el video/GIF de fogata */
+.hero-video {
+    filter: brightness(0.8) contrast(1.2);
+}
+
+.hero-overlay {
+    background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(255,107,53,0.1) 100%);
+}
+
+.flama-text {
+    text-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+    animation: flama-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes flama-glow {
+    from {
+        text-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+    }
+    to {
+        text-shadow: 0 0 30px rgba(255, 107, 53, 0.8), 0 0 40px rgba(255, 107, 53, 0.3);
+    }
+}
+
+.hero-button {
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
+}
+
+.hero-button:hover {
+    box-shadow: 0 0 30px rgba(255, 107, 53, 0.5);
+}
+
+/* Animaciones adicionales para FLAMA */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* Efectos de hover mejorados */
+.hover-glow:hover {
+    box-shadow: 0 0 15px rgba(255, 107, 53, 0.4);
+}
+
+/* Transiciones suaves */
+.smooth-transition {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+} 

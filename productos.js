@@ -1,25 +1,3 @@
-/**
- * SISTEMA DE CARGA DINÁMICA DE PRODUCTOS PARA FLAMA
- * 
- * Este archivo maneja la carga dinámica de productos desde producto.json
- * y los inserta en las secciones correspondientes del HTML.
- * 
- * FUNCIONALIDADES:
- * - Carga productos destacados (solo de la categoría 'conjuntos')
- * - Carga productos por categoría específica
- * - Mantiene el diseño y estilos originales
- * - Manejo de errores
- * 
- * PARA EXTENDER EL CÓDIGO:
- * - Agregar nuevas categorías en el JSON y en la función cargarProductosPorCategoria()
- * - Modificar plantillas HTML en las funciones de renderizado
- * - Agregar funcionalidades como filtros, búsqueda, paginación
- */
-
-// ============================================================================
-// CONFIGURACIÓN Y VARIABLES GLOBALES
-// ============================================================================
-
 // Mapeo de categorías del JSON a IDs del HTML
 const MAPEO_CATEGORIAS = {
     'camisas': 'productos-camisas',
@@ -28,6 +6,18 @@ const MAPEO_CATEGORIAS = {
     'lociones': 'productos-lociones',
     'conjuntos': 'productos-conjuntos'
 };
+
+// Configuración para mostrar productos iniciales
+const PRODUCTOS_INICIALES = {
+    'camisas': 3, // Mostrar solo 3 camisas inicialmente
+    'pantalones': 3,
+    'gorras': 3,
+    'lociones': 3,
+    'conjuntos': 4
+};
+
+// Variable global para almacenar todos los productos
+let TODOS_LOS_PRODUCTOS = {};
 
 // Configuración de estilos para diferentes tipos de productos
 const ESTILOS_PRODUCTOS = {
@@ -49,28 +39,30 @@ const ESTILOS_PRODUCTOS = {
 
 const DESCRIPCION_FIJA = 'Contáctanos para más información con el botón de abajo.';
 
-// ============================================================================
-// FUNCIONES PRINCIPALES
-// ============================================================================
-
 /**
  * Función principal que inicializa la carga de productos
  * Se ejecuta cuando el DOM está completamente cargado
  */
 async function inicializarProductos() {
     try {
-        console.log('🚀 Iniciando carga de productos...');
+        // console.log('🚀 Iniciando carga de productos...');
         
         // Cargar datos del JSON
         const productos = await cargarDatosJSON();
         
+        // Almacenar todos los productos globalmente
+        TODOS_LOS_PRODUCTOS = productos;
+        
         // Cargar productos destacados
         cargarProductosDestacados(productos);
         
-        // Cargar productos por categoría
-        cargarProductosPorCategoria(productos);
+        // Cargar productos por categoría (solo los iniciales)
+        cargarProductosPorCategoria(productos, true);
         
-        console.log('✅ Productos cargados exitosamente');
+        // Configurar event listeners para botones "Ver más"
+        configurarBotonesVerMas();
+        
+        // console.log('✅ Productos cargados exitosamente');
         
     } catch (error) {
         console.error('❌ Error al cargar productos:', error);
@@ -91,7 +83,7 @@ async function cargarDatosJSON() {
         }
         
         const datos = await response.json();
-        console.log('📦 Datos JSON cargados:', datos);
+        // console.log('📦 Datos JSON cargados:', datos);
         return datos;
         
     } catch (error) {
@@ -108,7 +100,7 @@ function cargarProductosDestacados(productos) {
     const contenedor = document.getElementById('productos-destacados');
     
     if (!contenedor) {
-        console.warn('⚠️ Contenedor de productos destacados no encontrado');
+        // console.warn('⚠️ Contenedor de productos destacados no encontrado');
         return;
     }
     
@@ -124,30 +116,59 @@ function cargarProductosDestacados(productos) {
         contenedor.innerHTML += productoHTML;
     });
     
-    console.log(`⭐ ${productosConjuntos.length} productos destacados cargados`);
+    // console.log(`⭐ ${productosConjuntos.length} productos destacados cargados`);
 }
 
 /**
  * Carga productos por categoría específica
  * @param {Object} productos - Objeto con productos organizados por categoría
+ * @param {boolean} soloIniciales - Si mostrar solo productos iniciales
  */
-function cargarProductosPorCategoria(productos) {
+function cargarProductosPorCategoria(productos, soloIniciales = false) {
     Object.keys(MAPEO_CATEGORIAS).forEach(categoria => {
         const contenedorId = MAPEO_CATEGORIAS[categoria];
         const contenedor = document.getElementById(contenedorId);
         if (!contenedor) return;
+        
         contenedor.innerHTML = '';
         const productosCategoria = productos[categoria] || [];
-        productosCategoria.forEach(producto => {
-            const productoHTML = crearHTMLProductoCategoria(producto, categoria);
-            contenedor.innerHTML += productoHTML;
-        });
+        
+        if (soloIniciales) {
+            const productosAMostrar = productosCategoria.slice(0, PRODUCTOS_INICIALES[categoria]);
+            productosAMostrar.forEach(producto => {
+                const productoHTML = crearHTMLProductoCategoria(producto, categoria);
+                contenedor.innerHTML += productoHTML;
+            });
+            
+            // Mostrar/ocultar botón "Ver más" según corresponda
+            mostrarOcultarBotonVerMas(categoria, productosCategoria.length);
+        } else {
+            productosCategoria.forEach(producto => {
+                const productoHTML = crearHTMLProductoCategoria(producto, categoria);
+                contenedor.innerHTML += productoHTML;
+            });
+        }
     });
 }
 
-// ============================================================================
-// FUNCIONES DE RENDERIZADO HTML
-// ============================================================================
+/**
+ * Muestra u oculta el botón "Ver más" según la cantidad de productos
+ * @param {string} categoria - Nombre de la categoría
+ * @param {number} totalProductos - Total de productos en la categoría
+ */
+function mostrarOcultarBotonVerMas(categoria, totalProductos) {
+    const btnVerMas = document.getElementById(`btn-ver-mas-${categoria}`);
+    const productosIniciales = PRODUCTOS_INICIALES[categoria];
+    
+    if (btnVerMas) {
+        if (totalProductos > productosIniciales) {
+            btnVerMas.style.display = 'inline-flex';
+            btnVerMas.innerHTML = `<i class="fas fa-plus mr-2"></i>Ver Más ${categoria.charAt(0).toUpperCase() + categoria.slice(1)} (${totalProductos - productosIniciales} más)`;
+        } else {
+            btnVerMas.style.display = 'none';
+        }
+    }
+}
 
 /**
  * Crea el HTML para un producto destacado
@@ -200,9 +221,6 @@ function crearHTMLProductoCategoria(producto, categoria = '') {
     `;
 }
 
-// ============================================================================
-// FUNCIONES UTILITARIAS
-// ============================================================================
 
 /**
  * Muestra un mensaje de error cuando falla la carga
@@ -235,22 +253,18 @@ function mostrarErrorCarga() {
  * @param {number} productoId - ID del producto
  */
 function agregarAlCarrito(productoId) {
-    console.log(`🛒 Producto ${productoId} agregado al carrito`);
-    // TODO: Implementar lógica del carrito de compras
-    alert(`Producto ${productoId} agregado al carrito`);
+    // Aquí iría la lógica para agregar al carrito
+    // console.log(`🛒 Producto ${productoId} agregado al carrito`);
 }
 
-// ============================================================================
-// FUNCIONES PARA EXTENDER EL CÓDIGO
-// ============================================================================
 
 /**
  * Función para buscar productos por nombre
  * @param {string} termino - Término de búsqueda
  */
 function buscarProductos(termino) {
+    // console.log(`🔍 Buscando productos con término: ${termino}`);
     // TODO: Implementar búsqueda de productos
-    console.log(`🔍 Buscando productos con término: ${termino}`);
 }
 
 /**
@@ -258,8 +272,52 @@ function buscarProductos(termino) {
  * @param {string} criterio - Criterio de ordenamiento (nombre, etc.)
  */
 function ordenarProductos(criterio) {
+    // console.log(`📊 Ordenando productos por: ${criterio}`);
     // TODO: Implementar ordenamiento de productos
-    console.log(`📊 Ordenando productos por: ${criterio}`);
+}
+
+// ============================================================================
+// FUNCIONES PARA BOTONES "VER MÁS"
+// ============================================================================
+
+/**
+ * Configura los event listeners para los botones "Ver más"
+ */
+function configurarBotonesVerMas() {
+    // Botón para camisas
+    const btnVerMasCamisas = document.getElementById('btn-ver-mas-camisas');
+    if (btnVerMasCamisas) {
+        btnVerMasCamisas.addEventListener('click', () => mostrarTodosLosProductos('camisas'));
+    }
+}
+
+/**
+ * Muestra todos los productos de una categoría específica
+ * @param {string} categoria - Nombre de la categoría
+ */
+function mostrarTodosLosProductos(categoria) {
+    const contenedorId = MAPEO_CATEGORIAS[categoria];
+    const contenedor = document.getElementById(contenedorId);
+    const btnVerMas = document.getElementById(`btn-ver-mas-${categoria}`);
+    
+    if (!contenedor || !TODOS_LOS_PRODUCTOS[categoria]) {
+        // console.warn(`⚠️ No se encontró contenedor o productos para ${categoria}`);
+        return;
+    }
+    
+    // Limpiar contenedor
+    contenedor.innerHTML = '';
+    
+    // Cargar todos los productos de la categoría
+    TODOS_LOS_PRODUCTOS[categoria].forEach(producto => {
+        const productoHTML = crearHTMLProductoCategoria(producto, categoria);
+        contenedor.innerHTML += productoHTML;
+    });
+    
+    // Ocultar el botón "Ver más"
+    if (btnVerMas) {
+        btnVerMas.style.display = 'none';
+    }
 }
 
 // ============================================================================

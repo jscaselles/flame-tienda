@@ -3,31 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FLAMA - Tienda de Ropa Urbana</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>FLAMA - Tienda de Ropa Urbana y Streetwear en Aguachica Cesar</title>
+    <meta name="description" content="Descubre la mejor ropa urbana y streetwear en FLAMA. Camisas urbanas, pantalones street y accesorios de moda. Tienda física en Aguachica Cesar. Envíos a todo Colombia.">
+    <meta name="keywords" content="ropa urbana, streetwear, moda urbana, camisas urbanas, pantalones street, tienda de ropa, Aguachica, Cesar, Colombia, FLAMA, ropa streetwear">
+    <meta name="author" content="FLAMA">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags para redes sociales -->
+    <meta property="og:title" content="FLAMA - Tienda de Ropa Urbana y Streetwear">
+    <meta property="og:description" content="Descubre la mejor ropa urbana y streetwear en FLAMA. Camisas urbanas, pantalones street y accesorios de moda.">
+    <meta property="og:image" content="https://res.cloudinary.com/dvd8kgp1z/image/upload/v1750172539/logo_flama_tienda_efgkxx.png">
+    <meta property="og:url" content="https://flameaguahica.netlify.app/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="FLAMA">
+    <meta property="og:locale" content="es_CO">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FLAMA - Tienda de Ropa Urbana y Streetwear">
+    <meta name="twitter:description" content="Descubre la mejor ropa urbana y streetwear en FLAMA. Camisas urbanas, pantalones street y accesorios de moda.">
+    <meta name="twitter:image" content="https://res.cloudinary.com/dvd8kgp1z/image/upload/v1750172539/logo_flama_tienda_efgkxx.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://flameaguahica.netlify.app/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/dvd8kgp1z/image/upload/c_fill,g_auto,h_32,w_32/v1750172539/logo_flama_tienda_efgkxx.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://res.cloudinary.com/dvd8kgp1z/image/upload/c_fill,g_auto,h_16,w_16/v1750172539/logo_flama_tienda_efgkxx.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://res.cloudinary.com/dvd8kgp1z/image/upload/c_fill,g_auto,h_180,w_180/v1750172539/logo_flama_tienda_efgkxx.png">
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'neon-orange': '#ff6b35',
-                        'neon-red': '#ff073a',
-                        'dark-gray': '#1a1a1a',
-                        'medium-gray': '#2d2d2d',
-                    },
-                    fontFamily: {
-                        'urban': ['Impact', 'Arial Black', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    <script src="tailwind.config.js"></script>
+    
+    <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gray-900 text-white">
+<body class="theme-dark">
     
      <!-- HEADER -->
-  <header class="bg-black shadow-lg sticky top-0 z-50">
+  <header class="bg-theme-secondary shadow-lg sticky top-0 z-50 border-b border-theme">
     <nav class="container mx-auto px-4 py-0">
       <div class="flex justify-between items-center">
         <!-- Logo con imagen -->
@@ -37,31 +57,61 @@
 
         <!-- Menú de navegación -->
         <div class="hidden md:flex space-x-8">
-          <a href="#inicio" class="text-white hover:text-orange-500 transition-colors duration-300 font-semibold">Inicio</a>
-          <a href="#categorias" class="text-white hover:text-orange-500 transition-colors duration-300 font-semibold">Categorías</a>
-          <a href="#contacto" class="text-white hover:text-orange-500 transition-colors duration-300 font-semibold">Contacto</a>
+          <a href="#inicio" class="text-theme-primary hover:text-orange-500 transition-colors duration-300 font-semibold">Inicio</a>
+          <a href="#categorias" class="text-theme-primary hover:text-orange-500 transition-colors duration-300 font-semibold">Categorías</a>
+          <a href="#contacto" class="text-theme-primary hover:text-orange-500 transition-colors duration-300 font-semibold">Contacto</a>
+          <a href="#ubicacion" class="text-theme-primary hover:text-orange-500 transition-colors duration-300 font-semibold flex items-center">
+            <i class="fas fa-map-marker-alt mr-2"></i>
+            Ubicación
+          </a>
         </div>
 
-        <!-- Botón menú móvil -->
-        <button class="md:hidden text-white text-2xl" onclick="toggleMenu()">
-          <i class="fas fa-bars"></i>
-        </button>
+        <!-- Botones de control -->
+        <div class="flex items-center space-x-4">
+          <!-- Botón de cambio de tema -->
+          <button id="theme-toggle" class="text-theme-primary hover:text-orange-500 transition-colors duration-300 p-2 rounded-full">
+            <i id="theme-icon" class="fas fa-moon text-xl"></i>
+          </button>
+          
+          <!-- Botón menú móvil -->
+          <button class="md:hidden text-theme-primary text-2xl" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
       </div>
 
       <!-- Menú móvil -->
       <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
-        <a href="#inicio" class="block text-white hover:text-orange-500 transition-colors duration-300 py-2">Inicio</a>
-        <a href="#categorias" class="block text-white hover:text-orange-500 transition-colors duration-300 py-2">Categorías</a>
-        <a href="#contacto" class="block text-white hover:text-orange-500 transition-colors duration-300 py-2">Contacto</a>
+        <a href="#inicio" class="block text-theme-primary hover:text-orange-500 transition-colors duration-300 py-2">Inicio</a>
+        <a href="#categorias" class="block text-theme-primary hover:text-orange-500 transition-colors duration-300 py-2">Categorías</a>
+        <a href="#contacto" class="block text-theme-primary hover:text-orange-500 transition-colors duration-300 py-2">Contacto</a>
+        <a href="#ubicacion" class="block text-theme-primary hover:text-orange-500 transition-colors duration-300 py-2 flex items-center">
+          <i class="fas fa-map-marker-alt mr-2"></i>
+          Ubicación
+        </a>
       </div>    
     </nav>
   </header>
 
-  <!-- HERO SECTION CON IMAGEN DE FONDO -->
-  <section id="inicio" class="relative h-screen bg-cover bg-center flex items-center justify-center" style="background-image: url('https://res.cloudinary.com/dvd8kgp1z/image/upload/v1750172621/tienda-flama_rw6pbi.png');">
-    <div class="absolute inset-0 bg-black opacity-50"></div>
-    <div class="relative z-10 text-center px-4">
-      <h1 class="text-6xl md:text-8xl font-bold mb-6">
+  <!-- HERO SECTION CON GIF DE FOGATA DE FONDO -->
+  <section id="inicio" class="relative h-screen flex items-center justify-center overflow-hidden">
+    <!-- GIF de fondo de fogata -->
+    <div class="absolute inset-0 w-full h-full z-0">
+      <img 
+        src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcG5jMDZvam13a3l6djdzeWlmczg0Mmg4OHgycDc0dmY5ZWw2OTJjayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/AHeTfHgVFPHgs/giphy.gif"
+        alt="Fogata FLAMA" 
+        class="w-full h-full object-cover hero-video"
+        onload="hideLoading()"
+        onerror="hideLoading()"
+      >
+    </div>
+    
+    <!-- Overlay oscuro para legibilidad -->
+    <div class="absolute inset-0 bg-black opacity-60 z-10 hero-overlay"></div>
+    
+    <!-- Contenido principal -->
+    <div class="relative z-20 text-center px-4">
+      <h1 class="text-6xl md:text-8xl font-bold mb-6 flama-text">
         <span class="text-white">BIENVENIDO A</span><br>
         <span class="text-orange-500">FLAMA</span>
       </h1>
@@ -69,17 +119,28 @@
         Descubre la moda urbana que define tu personalidad
         
       </p>
-      <button class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-4 px-8 rounded-lg text-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
+      <button class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-4 px-8 rounded-lg text-xl transition-all duration-300 transform hover:scale-105 shadow-lg hero-button">
         EXPLORAR COLECCIÓN
       </button>
+    </div>
+    
+    <!-- Indicador de carga -->
+    <div id="video-loading" class="absolute inset-0 bg-black bg-opacity-80 flex items-center justify-center z-30">
+      <div class="text-center">
+        <div class="animate-spin rounded-full h-16 w-16 border-b-2 border-orange-500 mx-auto mb-4"></div>
+        <p class="text-white text-lg">Cargando FLAMA...</p>
+      </div>
     </div>
   </section>
 
     <!-- SECCIÓN LO MÁS RECIENTE - Productos destacados cargados dinámicamente -->
-    <section class="py-16 bg-gray-800">
+    <section class="py-16 bg-theme-secondary">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-12">
-                <span class="text-orange-500">LO MÁS</span> <span class="text-white">RECIENTE</span>
+                🔥
+                <span class="text-orange-500">LO MÁS</span> 
+                <span class="text-theme-primary">RECIENTE</span>
+                🔥
             </h2>
             
             <!-- Contenedor para productos destacados - Se llena dinámicamente -->
@@ -90,57 +151,127 @@
     </section>
 
     <!-- SECCIONES POR CATEGORÍAS - Productos cargados dinámicamente -->
-    <section id="categorias" class="py-16 bg-gray-900">
+    <section id="categorias" class="py-16 bg-theme-primary">
         <div class="container mx-auto px-4">
             
             <!-- CATEGORÍA: CAMISAS -->
             <div class="mb-16">
                 <h2 class="text-4xl font-bold mb-8">
-                    <span class="text-orange-500">CAMISAS</span> <span class="text-white">URBANAS</span>
+                    <span class="text-orange-500">CAMISAS</span> <span class="text-theme-primary">URBANAS</span>
                 </h2>
                 <!-- Contenedor para productos de camisas - Se llena dinámicamente -->
                 <div id="productos-camisas" class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Los productos se cargarán dinámicamente aquí -->
                 </div>
+                <!-- Botón Ver Más para camisas -->
+                <div class="text-center mt-8">
+                    <button id="btn-ver-mas-camisas" class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+                        <i class="fas fa-plus mr-2"></i>
+                        Ver Más Camisas
+                    </button>
+                </div>
             </div>
 
-            <!-- CATEGORÍA: PANTALONES -->
+            <!-- CATEGORÍA: PANTALONES 
             <div class="mb-16">
                 <h2 class="text-4xl font-bold mb-8">
                     <span class="text-orange-500">PANTALONES</span> <span class="text-white">STREET</span>
                 </h2>
-                <!-- Contenedor para productos de pantalones - Se llena dinámicamente -->
+                 Contenedor para productos de pantalones - Se llena dinámicamente 
                 <div id="productos-pantalones" class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Los productos se cargarán dinámicamente aquí -->
+                     Los productos se cargarán dinámicamente aquí 
                 </div>
-            </div>
+            </div>-->
 
-            <!-- CATEGORÍA: GORRAS -->
+            <!-- CATEGORÍA: GORRAS 
             <div class="mb-16">
                 <h2 class="text-4xl font-bold mb-8">
                     <span class="text-orange-500">GORRAS</span> <span class="text-white">& CAPS</span>
                 </h2>
-                <!-- Contenedor para productos de gorras - Se llena dinámicamente -->
+                Contenedor para productos de gorras - Se llena dinámicamente 
                 <div id="productos-gorras" class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Los productos se cargarán dinámicamente aquí -->
+                    Los productos se cargarán dinámicamente aquí 
                 </div>
-            </div>
+            </div>-->
 
-            <!-- CATEGORÍA: LOCIONES -->
+            <!-- CATEGORÍA: LOCIONES 
             <div class="mb-16">
                 <h2 class="text-4xl font-bold mb-8">
                     <span class="text-orange-500">LOCIONES</span> <span class="text-white">& FRAGANCIAS</span>
                 </h2>
-                <!-- Contenedor para productos de lociones - Se llena dinámicamente -->
+                 Contenedor para productos de lociones - Se llena dinámicamente 
                 <div id="productos-lociones" class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Los productos se cargarán dinámicamente aquí -->
+                    Los productos se cargarán dinámicamente aquí 
+                </div>
+            </div>-->
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE UBICACIÓN CON MAPA -->
+    <section id="ubicacion" class="py-16 bg-theme-secondary">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">
+                <span class="text-orange-500">NUESTRA</span> <span class="text-theme-primary">UBICACIÓN</span>
+            </h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Información de ubicación -->
+                <div class="space-y-6">
+                    <div class="bg-theme-primary p-6 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold text-orange-500 mb-4">
+                            <i class="fas fa-map-marker-alt mr-3"></i>
+                            FLAMA - Aguachica
+                        </h3>
+                        <div class="space-y-3 text-theme-secondary">
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt text-orange-500 mr-3 w-5"></i>
+                                <span>Carrera 12 #5-26, Aguachica, Cesar</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-clock text-orange-500 mr-3 w-5"></i>
+                                <span>Lunes a Sábado: 9:00 AM - 8:00 PM</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-phone text-orange-500 mr-3 w-5"></i>
+                                <span>+57 3216828341</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-theme-primary p-6 rounded-lg shadow-lg">
+                        <h4 class="text-xl font-bold text-theme-primary mb-3">¿Cómo llegar?</h4>
+                        <p class="text-theme-secondary mb-4">
+                            Estamos ubicados en el centro de Aguachica, en la Carrera 12 con calle 5. 
+                            Fácil acceso desde cualquier parte de la ciudad.
+                        </p>
+                        <a href="https://maps.google.com/?q=Carrera+12+%235-26+Aguachica+Cesar+LOCAL+%231" 
+                           target="_blank" 
+                           class="inline-flex items-center bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105">
+                            <i class="fas fa-directions mr-2"></i>
+                            Obtener Direcciones
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Mapa de Google -->
+                <div class="bg-theme-primary p-4 rounded-lg shadow-lg">
+                    <iframe 
+                        src="https://maps.google.com/maps?q=Carrera+12+%235-26+Aguachica+Cesar+Colombia&t=&z=15&ie=UTF8&iwloc=&output=embed&ll=8.3187,-73.6167"
+                        width="100%" 
+                        height="400" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        class="rounded-lg">
+                    </iframe>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- FOOTER - Modificar información de contacto y redes sociales aquí -->
-    <footer id="contacto" class="bg-black py-12">
+    <footer id="contacto" class="bg-theme-tertiary py-12 border-t border-theme">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 
@@ -150,16 +281,16 @@
                     <div class="space-y-3">
                         <div class="flex items-center">
                             <i class="fas fa-envelope text-orange-500 mr-3"></i>
-                            <span class="text-gray-300">info@flama.com</span>
+                            <span class="text-theme-secondary">info@flama.com</span>
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-phone text-orange-500 mr-3"></i>
-                            <span class="text-gray-300">
+                            <span class="text-theme-secondary">
                                 +57 3216828341</span>
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-map-marker-alt text-orange-500 mr-3"></i>
-                            <span class="text-gray-300">Carrera 12 #5-26 Aguachica Cesar LOCAL #1</span>
+                            <span class="text-theme-secondary">Carrera 12 #5-26 Aguachica Cesar LOCAL #1</span>
                         </div>
                     </div>
                 </div>
@@ -168,13 +299,13 @@
                 <div>
                     <h3 class="text-2xl font-bold text-orange-500 mb-4">SÍGUENOS</h3>
                     <div class="flex space-x-4">
-                        <a href="https://www.instagram.com/tiendaflamaa/" class="bg-gray-800 hover:bg-orange-500 text-white p-3 rounded-full transition-all duration-300 transform hover:scale-110" target="_blank">
+                        <a href="https://www.instagram.com/tiendaflamaa/" class="bg-theme-primary hover:bg-orange-500 text-theme-secondary hover:text-white p-3 rounded-full transition-all duration-300 transform hover:scale-110" target="_blank">
                             <i class="fab fa-instagram text-xl"></i>
                         </a>
-                       <a href="#" class="text-white p-3 rounded-full transition-all duration-300 transform hover:scale-110">
+                       <a href="#" class="text-theme-secondary p-3 rounded-full transition-all duration-300 transform hover:scale-110">
                             <!--<i class="fab fa-tiktok text-xl"></i>-->
                         </a>
-                        <a href="#" class="  text-white p-3 rounded-full transition-all duration-300 transform hover:scale-110">
+                        <a href="#" class="  text-theme-secondary p-3 rounded-full transition-all duration-300 transform hover:scale-110">
                             <!--<i class="fab fa-facebook text-xl"></i>-->
                         </a>
                     </div>
@@ -183,44 +314,25 @@
                 <!-- Logo y descripción -->
                 <div>
                     <h3 class="text-3xl font-bold text-orange-500 mb-4">FLAMA</h3>
-                    <p class="text-gray-400">
+                    <p class="text-theme-secondary">
                         🔥ROPA STREETWEAR 🔥 Viste tu personalidad, vive tu pasión.
                     </p>
                 </div>
             </div>
             
             <!-- Copyright -->
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
-                <p class="text-gray-500">
+            <div class="border-t border-theme mt-8 pt-8 text-center">
+                <p class="text-theme-secondary">
                     © 2024 FLAMA. Todos los derechos reservados. | Diseño urbano para una generación sin límites.
                 </p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript para menú móvil -->
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        }
-
-        // Smooth scrolling para los enlaces
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
-
     <!-- Script para cargar productos dinámicamente -->
     <script src="productos.js"></script>
+    
+    <!-- Script principal de FLAMA -->
+    <script src="main.js"></script>
 </body>
 </html>
