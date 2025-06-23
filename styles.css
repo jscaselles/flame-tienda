@@ -5,12 +5,12 @@
 /* Estilos para tema claro/oscuro */
 .theme-light {
     --bg-primary: #ffffff;
-    --bg-secondary: #f3f4f6;
-    --bg-tertiary: #e5e7eb;
-    --text-primary: #1f2937;
-    --text-secondary: #6b7280;
+    --bg-secondary: #f8fafc;
+    --bg-tertiary: #e2e8f0;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
     --text-accent: #ff6b35;
-    --border-color: #d1d5db;
+    --border-color: #cbd5e1;
 }
 
 .theme-dark {

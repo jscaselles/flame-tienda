@@ -136,16 +136,18 @@
     <!-- SECCIÓN LO MÁS RECIENTE - Productos destacados cargados dinámicamente -->
     <section class="py-16 bg-theme-secondary">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12">
-                🔥
-                <span class="text-orange-500">LO MÁS</span> 
-                <span class="text-theme-primary">RECIENTE</span>
-                🔥
-            </h2>
+
             
             <!-- Contenedor para productos destacados - Se llena dinámicamente -->
-            <div id="productos-destacados" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Los productos se cargarán dinámicamente aquí -->
+            <!-- CATEGORÍA: CONJUNTOS (LO MÁS RECIENTE) -->
+            <div class="mb-16">
+                <h2 class="text-4xl font-bold mb-8 text-center">
+                    <span class="text-orange-500">CONJUNTOS</span> <span class="text-theme-primary">MÁS RECIENTES</span>
+                </h2>
+                <!-- Contenedor para productos de conjuntos - Se llena dinámicamente -->
+                <div id="productos-conjuntos" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Los productos se cargarán dinámicamente aquí -->
+                </div>
             </div>
         </div>
     </section>
@@ -156,54 +158,27 @@
             
             <!-- CATEGORÍA: CAMISAS -->
             <div class="mb-16">
-                <h2 class="text-4xl font-bold mb-8">
-                    <span class="text-orange-500">CAMISAS</span> <span class="text-theme-primary">URBANAS</span>
+                <h2 class="text-4xl font-bold mb-8 text-center">
+                    <span class="text-orange-500">COLECCION</span> <span class="text-theme-primary">URBANAS</span>
                 </h2>
                 <!-- Contenedor para productos de camisas - Se llena dinámicamente -->
                 <div id="productos-camisas" class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Los productos se cargarán dinámicamente aquí -->
                 </div>
-                <!-- Botón Ver Más para camisas -->
-                <div class="text-center mt-8">
-                    <button id="btn-ver-mas-camisas" class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
-                        <i class="fas fa-plus mr-2"></i>
-                        Ver Más Camisas
-                    </button>
+            </div>
+
+            <!-- CATEGORÍA: PANTALONES -->
+            <div class="mb-16">
+                <h2 class="text-4xl font-bold mb-8 text-center">
+                    <span class="text-orange-500">PANTALONES</span> <span class="text-theme-primary">STREET</span>
+                </h2>
+                <!-- Contenedor para productos de pantalones - Se llena dinámicamente -->
+                <div id="productos-pantalones" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Los productos se cargarán dinámicamente aquí -->
                 </div>
             </div>
 
-            <!-- CATEGORÍA: PANTALONES 
-            <div class="mb-16">
-                <h2 class="text-4xl font-bold mb-8">
-                    <span class="text-orange-500">PANTALONES</span> <span class="text-white">STREET</span>
-                </h2>
-                 Contenedor para productos de pantalones - Se llena dinámicamente 
-                <div id="productos-pantalones" class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                     Los productos se cargarán dinámicamente aquí 
-                </div>
-            </div>-->
-
-            <!-- CATEGORÍA: GORRAS 
-            <div class="mb-16">
-                <h2 class="text-4xl font-bold mb-8">
-                    <span class="text-orange-500">GORRAS</span> <span class="text-white">& CAPS</span>
-                </h2>
-                Contenedor para productos de gorras - Se llena dinámicamente 
-                <div id="productos-gorras" class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    Los productos se cargarán dinámicamente aquí 
-                </div>
-            </div>-->
-
-            <!-- CATEGORÍA: LOCIONES 
-            <div class="mb-16">
-                <h2 class="text-4xl font-bold mb-8">
-                    <span class="text-orange-500">LOCIONES</span> <span class="text-white">& FRAGANCIAS</span>
-                </h2>
-                 Contenedor para productos de lociones - Se llena dinámicamente 
-                <div id="productos-lociones" class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    Los productos se cargarán dinámicamente aquí 
-                </div>
-            </div>-->
+            
         </div>
     </section>
 
@@ -330,7 +305,7 @@
     </footer>
 
     <!-- Script para cargar productos dinámicamente -->
-    <script src="productos.js"></script>
+    <script src="script.js"></script>
     
     <!-- Script principal de FLAMA -->
     <script src="main.js"></script>

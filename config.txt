@@ -1,0 +1,17 @@
+/**
+ * SISTEMA DE CARGA DINÁMICA DE PRODUCTOS PARA FLAMA
+ * 
+ * Este archivo maneja la carga dinámica de productos desde producto.json
+ * y los inserta en las secciones correspondientes del HTML.
+ * 
+ * FUNCIONALIDADES:
+ * - Carga productos destacados (solo de la categoría 'conjuntos')
+ * - Carga productos por categoría específica
+ * - Mantiene el diseño y estilos originales
+ * - Manejo de errores
+ * 
+ * PARA EXTENDER EL CÓDIGO:
+ * - Agregar nuevas categorías en el JSON y en la función cargarProductosPorCategoria()
+ * - Modificar plantillas HTML en las funciones de renderizado
+ * - Agregar funcionalidades como filtros, búsqueda, paginación
+ */
